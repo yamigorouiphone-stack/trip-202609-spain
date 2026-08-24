@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#9b1c31">
+  <title>スペイン旅行 2026 | 9/11–9/22</title>
+  <style>
+    :root{
+      --bg:#f4f1eb;
+      --panel:#ffffff;
+      --panel2:#f7f4ee;
+      --ink:#20242b;
+      --muted:#737a84;
+      --line:rgba(39,43,51,.10);
+      --accent:#ff5f57;
+      --accent2:#ffbd2e;
+      --blue:#5ba7ff;
+      --green:#43d19e;
+      --purple:#b58cff;
+      --shadow:0 12px 34px rgba(49,43,35,.09);
+      --radius:22px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;background:var(--bg)}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 85% -5%, rgba(91,167,255,.20), transparent 28rem),
+        radial-gradient(circle at 0% 18%, rgba(255,95,87,.14), transparent 24rem),
+        linear-gradient(180deg,#f8f6f1 0,#f1eee8 100%);
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Segoe UI","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;
+      line-height:1.55;
+      -webkit-font-smoothing:antialiased;
+      padding-bottom:env(safe-area-inset-bottom);
+    }
+    a{color:inherit}
+    .hero{
+      position:relative;
+      overflow:hidden;
+      padding:30px 18px 26px;
+      background:
+        linear-gradient(145deg,rgba(255,255,255,.90),rgba(249,244,236,.96)),
+        linear-gradient(135deg,#fff4ef,#eef5ff 62%,#f8f3ea);
+      border-bottom:1px solid var(--line);
+    }
+    .hero:after{
+      content:"";
+      position:absolute;
+      width:260px;height:260px;border-radius:50%;
+      right:-110px;top:-110px;
+      background:radial-gradient(circle,rgba(255,189,46,.26),rgba(255,189,46,0) 70%);
+      pointer-events:none;
+    }
+    .hero-inner,.wrap{max-width:880px;margin:auto}
+    .kicker{
+      font-size:.72rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:#8b6d65;
+      font-weight:800;
+    }
+    h1{
+      font-size:clamp(2.15rem,10vw,4.4rem);
+      line-height:.98;
+      margin:.45rem 0 .8rem;
+      letter-spacing:-.04em;
+    }
+    .hero p{
+      margin:.25rem 0;
+      color:#686f79;
+      font-size:.96rem;
+    }
+    .route{
+      display:flex;gap:8px;overflow-x:auto;
+      padding:16px 0 2px;
+      scrollbar-width:none;
+      -webkit-overflow-scrolling:touch;
+    }
+    .route::-webkit-scrollbar{display:none}
+    .route span{
+      flex:0 0 auto;
+      font-size:.76rem;
+      padding:7px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.08);
+      color:#eef2f8;
+      backdrop-filter:blur(12px);
+    }
+
+    .nav-wrap{
+      position:sticky;top:0;z-index:50;
+      padding:10px 10px 0;
+      background:linear-gradient(180deg,rgba(244,241,235,.98) 70%,rgba(244,241,235,0));
+      backdrop-filter:blur(18px);
+    }
+    .nav{
+      max-width:880px;margin:auto;
+      display:flex;gap:8px;overflow-x:auto;
+      padding:0 3px 10px;
+      scrollbar-width:none;
+    }
+    .nav::-webkit-scrollbar{display:none}
+    .nav button{
+      flex:0 0 auto;
+      white-space:nowrap;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.94);
+      color:#5e6570;
+      padding:10px 14px;
+      border-radius:999px;
+      font-size:.86rem;
+      font-weight:800;
+      box-shadow:0 5px 16px rgba(49,43,35,.06);
+      cursor:pointer;
+      backdrop-filter:blur(10px);
+    }
+    .nav button.active{
+      background:linear-gradient(135deg,#ff6b61,#ff4d66);
+      color:#fff;
+      border-color:transparent;
+    }
+
+    .wrap{padding:12px 12px 64px}
+    .panel{display:none}.panel.active{display:block}
+    .section-title{
+      display:flex;align-items:end;justify-content:space-between;
+      gap:12px;margin:18px 4px 14px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size:1.4rem;
+      letter-spacing:-.02em;
+    }
+    .section-title small{color:var(--muted);font-size:.76rem}
+
+    .day{
+      position:relative;
+      background:
+        linear-gradient(180deg,rgba(255,255,255,.96),rgba(255,255,255,.98)),
+        var(--panel);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:16px;
+      margin:0 0 14px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .day:before{
+      content:"";
+      position:absolute;
+      inset:0 auto 0 0;
+      width:4px;
+      background:linear-gradient(180deg,var(--accent),var(--accent2));
+    }
+    .dayhead{
+      display:flex;justify-content:space-between;
+      gap:12px;align-items:flex-start;
+      margin-bottom:12px;
+    }
+    .day h3{
+      margin:0;
+      font-size:1.24rem;
+      letter-spacing:-.015em;
+    }
+    .small{font-size:.78rem;color:var(--muted)}
+    .city{
+      font-size:.68rem;
+      font-weight:900;
+      letter-spacing:.08em;
+      color:#315b7b;
+      background:#eef5fb;
+      padding:6px 9px;
+      border-radius:999px;
+      border:1px solid rgba(91,167,255,.18);
+      white-space:nowrap;
+    }
+    .timeline{
+      border-left:1px solid rgba(255,255,255,.10);
+      margin-left:8px;
+      padding-left:16px;
+    }
+    .item{
+      position:relative;
+      padding:5px 0 13px;
+      font-size:.96rem;
+    }
+    .item:before{
+      content:"";
+      width:9px;height:9px;border-radius:50%;
+      background:linear-gradient(135deg,var(--accent2),var(--accent));
+      position:absolute;left:-21px;top:12px;
+      box-shadow:0 0 0 4px #ffffff;
+    }
+    .time{
+      display:inline-block;
+      min-width:48px;
+      font-weight:900;
+      font-variant-numeric:tabular-nums;
+      color:#20242b;
+    }
+    .desc{color:var(--muted);font-size:.84rem;margin-top:4px}
+    .badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:7px}
+    .badge{
+      font-size:.68rem;
+      font-weight:900;
+      padding:4px 7px;
+      border-radius:999px;
+      background:#f0f1f3;
+      color:#626a75;
+      border:1px solid rgba(255,255,255,.05);
+    }
+    .badge.booked{background:rgba(67,209,158,.13);color:#7ce5bd;border-color:rgba(67,209,158,.18)}
+    .badge.move{background:rgba(91,167,255,.13);color:#8dc2ff;border-color:rgba(91,167,255,.18)}
+    .badge.night{background:rgba(181,140,255,.14);color:#c4a5ff;border-color:rgba(181,140,255,.20)}
+    .maplink{
+      display:inline-flex;
+      align-items:center;
+      gap:4px;
+      margin:6px 0 0 4px;
+      text-decoration:none;
+      font-size:.74rem;
+      font-weight:900;
+      color:#8dc2ff;
+      background:rgba(91,167,255,.10);
+      border:1px solid rgba(91,167,255,.14);
+      padding:5px 8px;
+      border-radius:999px;
+    }
+    .near{
+      margin-top:12px;
+      padding:12px 13px;
+      border:1px solid rgba(255,189,46,.13);
+      background:rgba(255,189,46,.06);
+      border-radius:15px;
+    }
+    .near strong{font-size:.82rem;color:#ffd56f}
+    .near p{margin:6px 0 0;color:#626a75;font-size:.84rem}
+
+    .grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:10px;
+    }
+    .place{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+      box-shadow:0 10px 26px rgba(0,0,0,.16);
+    }
+    .place h3{
+      font-size:1rem;
+      margin:0 0 6px;
+      letter-spacing:-.01em;
+    }
+    .place .meta{font-size:.76rem;color:var(--muted)}
+    .place a{
+      display:inline-flex;
+      margin-top:10px;
+      font-size:.76rem;
+      font-weight:900;
+      text-decoration:none;
+      color:#91c4ff;
+      background:rgba(91,167,255,.10);
+      border:1px solid rgba(91,167,255,.14);
+      padding:6px 9px;
+      border-radius:999px;
+    }
+
+    .filters{
+      display:flex;
+      flex-wrap:nowrap;
+      overflow-x:auto;
+      gap:7px;
+      margin:0 -2px 12px;
+      padding:0 2px 3px;
+      scrollbar-width:none;
+    }
+    .filters::-webkit-scrollbar{display:none}
+    .filter{
+      flex:0 0 auto;
+      border:1px solid var(--line);
+      background:var(--panel);
+      color:#c9d0dd;
+      border-radius:999px;
+      padding:8px 11px;
+      font-size:.78rem;
+      font-weight:800;
+      cursor:pointer;
+    }
+    .filter.active{
+      background:#20242b;
+      color:#fff;
+      border-color:#20242b;
+    }
+
+    .card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:16px;
+      margin-bottom:14px;
+      box-shadow:var(--shadow);
+    }
+    .card h3{margin-top:0}
+    .flight{
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      gap:10px;
+    }
+    .flight .airport{
+      font-size:1.55rem;
+      font-weight:950;
+      letter-spacing:-.04em;
+    }
+    .flight .arrow{color:#788294;font-size:.8rem}
+    .note{
+      background:rgba(255,189,46,.06);
+      border:1px solid rgba(255,189,46,.13);
+      padding:12px 14px;
+      border-radius:14px;
+      margin:12px 0;
+      color:#d8dce5;
+      font-size:.84rem;
+    }
+
+    .check{
+      display:flex;gap:10px;align-items:flex-start;
+      padding:12px 0;
+      border-bottom:1px solid var(--line);
+    }
+    .check input{
+      width:22px;height:22px;
+      accent-color:#ff5f57;
+      margin-top:1px;
+    }
+
+    iframe{background:#f3f1ec}
+    .footer{
+      text-align:center;
+      color:#8a8f97;
+      font-size:.72rem;
+      padding:26px 0 14px;
+    }
+
+    @media(min-width:700px){
+      .hero{padding:44px 24px 34px}
+      .wrap{padding-left:20px;padding-right:20px}
+      .day{padding:20px}
+      .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+
+    @supports(padding:max(0px)){
+      .hero{
+        padding-left:max(18px,env(safe-area-inset-left));
+        padding-right:max(18px,env(safe-area-inset-right));
+      }
+      .wrap{
+        padding-left:max(12px,env(safe-area-inset-left));
+        padding-right:max(12px,env(safe-area-inset-right));
+      }
+    }
+  
+    .hero{padding-top:24px;padding-bottom:22px}
+    .hero h1{font-size:clamp(2rem,9vw,3.5rem);margin-bottom:.65rem}
+
+  </style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker">Spain Trip 2026</div>
+    <h1>スペイン旅行 2026</h1>
+    <p><b>2026.09.11 – 09.22</b> <span style="opacity:.55">12 DAYS</span></p>
+  </div>
+</header>
+
+<div class="nav-wrap">
+  <nav class="nav" aria-label="ページ切替">
+    <button class="active" data-tab="schedule">スケジュール</button>
+    <button data-tab="transport">移動・宿泊</button>
+    <button data-tab="map">地図</button>
+    <button data-tab="todo">やりたい</button>
+    <button data-tab="packing">持ち物</button>
+  </nav>
+</div>
+
+<main class="wrap">
+<section class="panel active" id="schedule">
+  <div class="section-title"><h2>スケジュール</h2><small>原本の予定を省略せず反映</small></div>
+
+  <article class="day">
+    <div class="dayhead"><div><h3>9月11日（金）</h3><div class="small">東京 → 上海</div></div><span class="city">FLIGHT</span></div>
+    <div class="timeline">
+      <div class="item"><span class="time">18:00</span> 羽田空港第3ターミナル集合・チェックイン <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Haneda+Airport+Terminal+3" target="_blank">🗺 地図</a></div>
+      <div class="item"><span class="time">20:00</span> 羽田空港発（MU540）→ 上海・浦東空港へ<div class="badges"><span class="badge booked">確定</span><span class="badge move">フライト</span></div></div>
+      <div class="item">宿泊：機内</div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="dayhead"><div><h3>9月12日（土）</h3><div class="small">Barcelona → Madrid</div></div><span class="city">MADRID</span></div>
+    <div class="timeline">
+      <div class="item"><span class="time">08:05</span> バルセロナ着（MU249）</div>
+      <div class="item"><span class="time">13:35</span> バルセロナ → <span class="time">15:00</span> マドリードへ移動（IB0412 / IBERIA航空）<div class="badges"><span class="badge booked">確定</span><span class="badge move">フライト</span></div></div>
+      <div class="item"><span class="time">19:00</span> ソフィア王妃芸術センター <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=40.408576,-3.694028" target="_blank">🗺 地図</a><div class="badges"><span class="badge booked">予約済み</span></div></div>
+      <div class="item">宿泊：Zurbano Street, Private rooms</div>
+    </div>
+    <div class="near"><strong>おすすめ（原本外）</strong><p>到着日なので詰め込みすぎず、美術館後にアトーチャ周辺で食事程度が安全。</p></div>
+  </article>
+
+  <article class="day">
+    <div class="dayhead"><div><h3>9月13日（日）</h3><div class="small">Madrid</div></div><span class="city">MADRID</span></div>
+    <div class="timeline">
+      <div class="item"><span class="time">10:45</span> マドリード王宮 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=40.417974,-3.714302" target="_blank">🗺 地図</a><div class="badges"><span class="badge booked">予約済み</span></div></div>
+      <div class="item">午後：マドリード観光</div>
+      <div class="item">レアル・マドリード観戦（予定） <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Santiago+Bernabeu" target="_blank">🗺 地図</a><div class="badges"><span class="badge">予定</span></div></div>
+      <div class="item">闘牛（予定）<div class="badges"><span class="badge">予定</span></div></div>
+      <div class="item">宿泊：Zurbano Street, Private rooms</div>
+    </div>
+    <div class="near"><strong>おすすめ（原本外）</strong><p>王宮からマヨール広場、サン・ミゲル市場、プエルタ・デル・ソルは徒歩でつなぎやすい。</p></div>
+  </article>
+
+  <article class="day">
+    <div class="dayhead"><div><h3>9月14日（月）</h3><div class="small">Madrid ⇄ Toledo</div></div><span class="city">TOLEDO</span></div>
+    <div class="timeline">
+      <div class="item"><span class="time">09:15</span> トレドへ移動（Avant 08292）<div class="badges"><span class="badge move">鉄道</span></div></div>
+      <div class="item"><span class="time">09:46</span> トレド到着</div>
+      <div class="item">トレド観光</div>
+      <div class="item"><span class="time">21:35</span> マドリードへ移動（Avant 08213）<div class="badges"><span class="badge move">鉄道</span></div></div>
+      <div class="item"><span class="time">22:15</span> マドリード到着</div>
+      <div class="item">宿泊：Zurbano Street, Private rooms</div>
+    </div>
+    <div class="near"><strong>おすすめ（原本外）</strong><p>トレド大聖堂、サント・トメ教会、エル・グレコ美術館、ミラドール・デル・バジェを候補に。</p></div>
+  </article>
+
+  <article class="day">
+    <div class="dayhead"><div><h3>9月15日（火）</h3><div class="small">Madrid → Barcelona</div></div><span class="city">BARCELONA</span></div>
+    <div class="timeline">
+      <div class="item"><span class="time">10:00</span> プラド美術館 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Museo+del+Prado" target="_blank">🗺 地図</a></div>
+      <div class="item">ティッセン＝ボルネミッサ美術館（未予約） <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Thyssen-Bornemisza+Museum" target="_blank">🗺 地図</a></div>
+      <div class="item"><span class="time">16:57</span> マドリード → <span class="time">19:59</span> バルセロナ移動（RENFE）<div class="badges"><span class="badge move">鉄道</span></div></div>
+      <div class="item">宿泊：Hostal Excellence</div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="dayhead"><div><h3>9月16日（水）</h3><div class="small">Barcelona</div></div><span class="city">BARCELONA</span></div>
+    <div class="timeline">
+      <div class="item">午前：予定なし</div>
+      <div class="item">午後：FCバルセロナ観戦（予定） <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Spotify+Camp+Nou" target="_blank">🗺 地図</a><div class="badges"><span class="badge">予定</span></div></div>
+      <div class="item">宿泊：Hostal Excellence</div>
+    </div>
+    <div class="near"><strong>おすすめ（原本外）</strong><p>試合開始時刻が確定するまでは午前を空けておく。観光を足す場合も試合を最優先。</p></div>
+  </article>
+
+  <article class="day">
+    <div class="dayhead"><div><h3>9月17日（木）</h3><div class="small">Gaudí & Barcelona</div></div><span class="city">BARCELONA</span></div>
+    <div class="timeline">
+      <div class="item"><span class="time">10:00</span> グエル公園 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=41.414700,2.152822" target="_blank">🗺 地図</a><div class="badges"><span class="badge booked">予約済み</span></div></div>
+      <div class="item">ガウディ建築巡り（カサ・バトリョ、カサ・ミラなど）</div>
+      <div class="item">旧市街・ランブラス通り・バル巡り</div>
+      <div class="item"><span class="time">17:45</span> サグラダ・ファミリア見学 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=41.403703,2.174506" target="_blank">🗺 地図</a><div class="badges"><span class="badge booked">予約済み</span></div></div>
+      <div class="item">宿泊：Hostal Excellence</div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="dayhead"><div><h3>9月18日（金）</h3><div class="small">Barcelona → Ibiza</div></div><span class="city">IBIZA</span></div>
+    <div class="timeline">
+      <div class="item"><span class="time">08:50</span> バルセロナ空港 → <span class="time">09:55</span> イビサ島へ移動（VY3504 / VUELING）<div class="badges"><span class="badge booked">確定</span><span class="badge move">フライト</span></div></div>
+      <div class="item">午後：Ushuaïa → Hï Ibiza <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Ushuaia+Ibiza" target="_blank">🗺 Ushuaïa</a> <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Hi+Ibiza" target="_blank">🗺 Hï</a><div class="badges"><span class="badge night">CLUB</span></div></div>
+      <div class="item">宿泊：Ceibo Ibiza - Guest House</div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="dayhead"><div><h3>9月19日（土）</h3><div class="small">Formentera / Ibiza</div></div><span class="city">FORMENTERA</span></div>
+    <div class="timeline">
+      <div class="item">午前：フォルメンテーラ島</div>
+      <div class="item">午後：UNVRS <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=38.957701,1.407795" target="_blank">🗺 地図</a><div class="badges"><span class="badge night">CLUB</span></div></div>
+      <div class="item">宿泊：Ceibo Ibiza - Guest House</div>
+    </div>
+    <div class="near"><strong>おすすめ（原本外）</strong><p>フォルメンテーラはLa Savina〜Ses Illetes中心にして、UNVRSへ戻る時間を優先。</p></div>
+  </article>
+
+  <article class="day">
+    <div class="dayhead"><div><h3>9月20日（日）</h3><div class="small">Ibiza → Barcelona</div></div><span class="city">BARCELONA</span></div>
+    <div class="timeline">
+      <div class="item">午前：イビサ観光・ビーチ</div>
+      <div class="item"><span class="time">14:35</span> イビサ空港 → <span class="time">15:35</span> バルセロナ空港へ移動（VY3511）<div class="badges"><span class="badge booked">確定</span><span class="badge move">フライト</span></div></div>
+      <div class="item">宿泊：Novotel Barcelona City <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Novotel+Barcelona+City" target="_blank">🗺 地図</a></div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="dayhead"><div><h3>9月21日（月）</h3><div class="small">Barcelona → Shanghai</div></div><span class="city">FLIGHT</span></div>
+    <div class="timeline">
+      <div class="item"><span class="time">10:55</span> バルセロナ発（MU250）→ 上海・浦東空港へ<div class="badges"><span class="badge booked">確定</span><span class="badge move">フライト</span></div></div>
+      <div class="item">午後：機内</div>
+      <div class="item">宿泊：機内</div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="dayhead"><div><h3>9月22日（火）</h3><div class="small">Shanghai → Tokyo</div></div><span class="city">TOKYO</span></div>
+    <div class="timeline">
+      <div class="item"><span class="time">05:25</span> 上海・浦東空港着</div>
+      <div class="item"><span class="time">09:05</span> 上海・浦東空港発（MU523）</div>
+      <div class="item"><span class="time">12:50</span> 成田空港着</div>
+      <div class="item">午後：帰宅</div>
+    </div>
+  </article>
+</section>
+
+<section class="panel" id="transport">
+  <div class="section-title"><h2>移動・宿泊</h2><small>公開しても問題ない情報のみ</small></div>
+
+  <div class="card">
+    <h3>国際線</h3>
+    <div class="flight"><div><div class="airport">HND</div><div class="small">9/11 20:00</div></div><div class="arrow">→ MU540 →</div><div style="text-align:right"><div class="airport">PVG</div></div></div>
+    <hr style="border:0;border-top:1px solid var(--line);margin:14px 0">
+    <div class="flight"><div><div class="airport">PVG</div></div><div class="arrow">→ MU249 →</div><div style="text-align:right"><div class="airport">BCN</div><div class="small">9/12 08:05</div></div></div>
+    <hr style="border:0;border-top:1px solid var(--line);margin:14px 0">
+    <div class="flight"><div><div class="airport">BCN</div><div class="small">9/21 10:55</div></div><div class="arrow">→ MU250 →</div><div style="text-align:right"><div class="airport">PVG</div></div></div>
+    <hr style="border:0;border-top:1px solid var(--line);margin:14px 0">
+    <div class="flight"><div><div class="airport">PVG</div><div class="small">9/22 09:05</div></div><div class="arrow">→ MU523 →</div><div style="text-align:right"><div class="airport">NRT</div><div class="small">12:50</div></div></div>
+  </div>
+
+  <div class="grid">
+    <div class="place"><h3>9/12 Barcelona → Madrid</h3><div class="meta">IB0412 · 13:35 → 15:00</div></div>
+    <div class="place"><h3>9/15 Madrid → Barcelona</h3><div class="meta">RENFE · 16:57 → 19:59</div></div>
+    <div class="place"><h3>9/18 Barcelona → Ibiza</h3><div class="meta">VY3504 · 08:50 → 09:55</div></div>
+    <div class="place"><h3>9/20 Ibiza → Barcelona</h3><div class="meta">VY3511 · 14:35 → 15:35</div></div>
+  </div>
+
+  <div class="section-title"><h2>ホテル</h2></div>
+  <div class="grid">
+    <div class="place"><h3>Zurbano Street, Private rooms</h3><div class="meta">Madrid · 9/12・9/13・9/14<br>Calle de Zurbano, 58, Madrid, Spain 28010</div><a href="https://www.google.com/maps/search/?api=1&query=Calle+de+Zurbano+58+Madrid+Spain+28010" target="_blank">Google Maps ↗</a></div>
+    <div class="place"><h3>Hostal Excellence</h3><div class="meta">Barcelona · 9/15・9/16・9/17<br>Santa Anna 27, Barcelona, Spain 08002</div><a href="https://www.google.com/maps/search/?api=1&query=Santa+Anna+27+Barcelona+Spain+08002" target="_blank">Google Maps ↗</a></div>
+    <div class="place"><h3>Ceibo Ibiza - Guest House</h3><div class="meta">Ibiza · 9/18・9/19<br>medico jose costa nº 2 5º 4º, Ibiza, Spain 07800</div><a href="https://www.google.com/maps/search/?api=1&query=medico+jose+costa+2+5+4+Ibiza+Spain+07800" target="_blank">Google Maps ↗</a></div>
+    <div class="place"><h3>Novotel Barcelona City</h3><div class="meta">Barcelona · 9/20</div><a href="https://www.google.com/maps/search/?api=1&query=41.404665,2.191570" target="_blank">Google Maps ↗</a></div>
+  </div>
+  <div class="note">予約番号・パスポート番号・WhatsApp番号などは、GitHub Pagesで公開される可能性があるため、このしおりには入れていません。</div>
+</section>
+
+<section class="panel" id="map">
+  <div class="section-title"><h2>Google My Maps</h2><small>スペイン旅行マップ</small></div>
+  <div class="card" style="padding:10px">
+    <iframe src="https://www.google.com/maps/d/embed?mid=1egqz9ADig1wMRQ6lsr_rfEzzxyA_YoE" width="100%" height="460" style="border:0;border-radius:14px;display:block" loading="lazy"></iframe>
+  </div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px">
+    <a href="https://www.google.com/maps/d/viewer?mid=1egqz9ADig1wMRQ6lsr_rfEzzxyA_YoE" target="_blank" style="display:inline-block;text-decoration:none;background:#246a9b;color:#20242b;padding:10px 14px;border-radius:999px;font-weight:800">Google Mapsで開く ↗</a>
+    <a href="https://www.google.com/maps/d/u/0/edit?mid=1egqz9ADig1wMRQ6lsr_rfEzzxyA_YoE" target="_blank" style="display:inline-block;text-decoration:none;background:#fffdf8;border:1px solid #e4ddd0;padding:10px 14px;border-radius:999px;font-weight:800">My Mapsを編集 ↗</a>
+  </div>
+  <div class="section-title"><h2>スポット一覧</h2><small>しおり内の主要地点</small></div>
+  <div class="filters">
+    <button class="filter active" data-city="all">全部</button>
+    <button class="filter" data-city="Madrid">Madrid</button>
+    <button class="filter" data-city="Toledo">Toledo</button>
+    <button class="filter" data-city="Barcelona">Barcelona</button>
+    <button class="filter" data-city="Ibiza">Ibiza</button>
+    <button class="filter" data-city="Formentera">Formentera</button>
+  </div>
+  <div class="grid" id="places"></div>
+  <div class="note">同梱の <b>spain_2026_google_mymaps.csv</b> は Google My Maps にそのままインポートできます。</div>
+</section>
+
+<section class="panel" id="todo">
+  <div class="section-title"><h2>やりたいこと</h2><small>空き時間の候補</small></div>
+  <div class="grid">
+    <div class="place"><h3>Madrid · ティッセン美術館</h3><div class="meta">プラド＋ソフィア王妃と合わせて美術館三角地帯を完成。</div></div>
+    <div class="place"><h3>Madrid · サン・ミゲル市場</h3><div class="meta">軽くつまんで飲む。王宮・マヨール広場と組みやすい。</div></div>
+    <div class="place"><h3>Barcelona · カタルーニャ音楽堂</h3><div class="meta">モデルニスモ建築。外観だけでなく内部見学も候補。</div></div>
+    <div class="place"><h3>Barcelona · カサ・バトリョ / カサ・ミラ</h3><div class="meta">サグラダ・ファミリアの日にまとめやすい。</div></div>
+    <div class="place"><h3>Ibiza · Dalt Vila</h3><div class="meta">9/20午前の最有力。クラブ翌日なので無理しない。</div></div>
+    <div class="place"><h3>Formentera · Ses Illetes</h3><div class="meta">9/19の最優先。夜のUNVRSに備えて島の東端までは欲張らない。</div></div>
+    <div class="place"><h3>ユニフォーム</h3><div class="meta">Real Madrid / Barça の公式ショップで現地購入候補。</div></div>
+    <div class="place"><h3>食事</h3><div class="meta">生ハム、タパス、パエリア、ピンチョス、シーフード。酒と合わせる。</div></div>
+  </div>
+</section>
+
+<section class="panel" id="packing">
+  <div class="section-title"><h2>持ち物チェック</h2><small>チェック状態は端末に保存</small></div>
+  <div class="card" id="checklist"></div>
+  <div class="section-title"><h2>出発前チェック</h2></div>
+  <div class="card" id="precheck"></div>
+</section>
+
+<div class="footer">Spain Trip 2026 · personal travel guide</div>
+</main>
+
+<script>
+const tabs=[...document.querySelectorAll(".nav button")];
+tabs.forEach(b=>b.addEventListener("click",()=>{
+  tabs.forEach(x=>x.classList.toggle("active",x===b));
+  document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("active",p.id===b.dataset.tab));
+  window.scrollTo({top:document.querySelector(".nav-wrap").offsetTop,behavior:"smooth"});
+}));
+
+const places = [
+["ソフィア王妃芸術センター","Madrid","予約済・確定",40.408576,-3.694028,"ピカソ《ゲルニカ》が最大の見どころ。ダリやミロも強く、20世紀スペイン美術をまとめて見られる。"],
+["マドリード王宮","Madrid","予約済・確定",40.417974,-3.714302,"豪華な公式諸間と武器庫が見どころ。外観だけでなく内部装飾の密度がかなり高い。"],
+["サンティアゴ・ベルナベウ","Madrid","サッカー",40.452135,-3.688716,"レアル・マドリードの本拠地。試合日は周辺の熱気も含めて楽しむ場所。公式ショップも候補。"],
+["プラド美術館","Madrid","観光",40.413755,-3.692238,"ベラスケス《ラス・メニーナス》、ゴヤ、エル・グレコが核。スペイン絵画を見るなら最優先。"],
+["ティッセン＝ボルネミッサ美術館","Madrid","観光",40.416018,-3.694715,"古典から印象派・近代まで流れで見やすい。プラドよりコンパクトで、印象派好きにも相性がいい。"],
+["サン・ミゲル市場","Madrid","食事・市場",40.415379,-3.708972,"タパスや生ハムを少量ずつ試しやすい市場。観光地価格だが、軽く飲んでつまむ用途に便利。"],
+["レティーロ公園","Madrid","観光",40.415423,-3.684236,"大きな池と水晶宮が定番。美術館巡りの合間に休憩するのにちょうどいい。"],
+["デボー聖堂","Madrid","絶景",40.424008,-3.717778,"古代エジプト神殿と夕景の組み合わせが人気。日没前後に行くと景色がいい。"],
+["トレド大聖堂","Toledo","観光",39.857938,-4.023546,"スペイン・ゴシック建築の代表格。聖具室のエル・グレコ作品も見逃しにくい。"],
+["アルカサル","Toledo","観光",39.858309,-4.020659,"街の高台を占める要塞。外観の存在感が強く、軍事博物館としても見応えがある。"],
+["サント・トメ教会","Toledo","観光",39.856093,-4.028068,"エル・グレコ《オルガス伯の埋葬》を見るための場所と言っていい。短時間でも満足度が高い。"],
+["ミラドール・デル・バジェ","Toledo","絶景",39.850370,-4.022510,"トレド旧市街全体を一望する定番展望台。写真を撮るなら最優先候補。"],
+["サグラダ・ファミリア","Barcelona","予約済・確定",41.403703,2.174506,"内部の光と柱の森が圧巻。外観は生誕のファサードと受難のファサードを見比べると面白い。"],
+["グエル公園","Barcelona","予約済・確定",41.414700,2.152822,"波打つベンチ、トカゲ、列柱空間が定番。高低差があるので歩きやすい靴推奨。"],
+["Spotify Camp Nou","Barcelona","サッカー",41.380889,2.122831,"FCバルセロナの本拠地。試合観戦が主目的。公式ショップでユニフォームを見るのもあり。"],
+["カサ・バトリョ","Barcelona","観光",41.391719,2.164949,"骨や海を思わせる有機的な外観と吹き抜けが見どころ。夜のライトアップも映える。"],
+["カサ・ミラ","Barcelona","観光",41.395336,2.161990,"波打つ石造ファサードと屋上の煙突群が有名。屋上まで入ると満足度が上がる。"],
+["カタルーニャ音楽堂","Barcelona","観光",41.387575,2.175312,"ステンドグラス天井が最大の見どころ。ガウディ以外のモデルニスモ建築としてかなり面白い。"],
+["ボケリア市場","Barcelona","食事・市場",41.381739,2.171585,"生ハム、魚介、フルーツ、バルが集まる。混雑するので軽く食べ歩く用途向き。"],
+["Novotel Barcelona City","Barcelona","ホテル",41.404665,2.191570,"最終泊。グロリアス周辺で、空港移動前の拠点として使いやすい。"],
+["Ushuaïa Ibiza","Ibiza","ナイトクラブ",38.8847,1.4041,"屋外大型ステージが売り。夕方から日没にかけて雰囲気が一気に上がる。"],
+["Hï Ibiza","Ibiza","ナイトクラブ",38.8859,1.4038,"世界トップクラスの大型クラブ。複数フロアがあるので、メイン以外も一度覗く価値あり。"],
+["UNVRS","Ibiza","ナイトクラブ",38.957701,1.407795,"巨大スケールの最新型クラブ。演出を楽しむタイプなので、早めに入って場内を見るのも面白い。"],
+["Dalt Vila","Ibiza","観光",38.906734,1.436071,"城壁に囲まれた旧市街。石畳と高台からの港の眺めが見どころ。"],
+["Ses Salines Beach","Ibiza","ビーチ",38.839013,1.390929,"透明度の高い海と白砂が魅力。クラブ前後に長居せず、景色を楽しむだけでも十分。"],
+["Es Vedrà 展望エリア","Ibiza","絶景",38.869306,1.210773,"海上の岩島Es Vedràを見る定番スポット。夕方は特に人気が高い。"],
+["La Savina 港","Formentera","交通",38.7344,1.4169,"イビサからの玄関口。到着後すぐに移動手段を確保すると動きやすい。"],
+["Ses Illetes","Formentera","ビーチ",38.7593,1.4320,"フォルメンテーラ屈指のビーチ。浅く透明な海と細長い砂州が見どころ。"],
+["Sant Francesc Xavier","Formentera","観光",38.7054,1.4284,"島の中心街。白い教会と落ち着いた街並みで、食事休憩にも向く。"],
+["Cala Saona","Formentera","ビーチ",38.6954,1.3882,"小さな入り江で、Illetesより落ち着いた雰囲気。時間に余裕があれば候補。"],
+["Far de la Mola","Formentera","絶景",38.6633,1.5830,"島東端の灯台。断崖と海の景色は良いが、今回は夜の予定を考えると時間配分に注意。"]
+]
+const box=document.getElementById("places");
+function render(city="all"){
+  box.innerHTML="";
+  places.filter(p=>city==="all"||p[1]===city).forEach(p=>{
+    const d=document.createElement("div"); d.className="place";
+    d.innerHTML=`<h3>${p[0]}</h3><div class="meta">${p[1]} · ${p[2]}<br>${p[3]}, ${p[4]}</div><div style="margin-top:8px;font-size:.88rem;line-height:1.55">${p[5]}</div><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=${p[3]},${p[4]}">Google Maps ↗</a>`;
+    box.appendChild(d);
+  });
+}
+render();
+document.querySelectorAll(".filter").forEach(f=>f.addEventListener("click",()=>{
+  document.querySelectorAll(".filter").forEach(x=>x.classList.toggle("active",x===f));
+  render(f.dataset.city);
+}));
+
+const packing=[
+"パスポート","航空券・予約メールをオフライン保存","クレジットカード / Wiseカード","少額のユーロ現金",
+"スマートフォン","モバイルバッテリー","充電器・USBケーブル","変換プラグ（Cタイプ）","イヤホン",
+"歩きやすい靴","サンダル","水着","薄手の羽織り","帽子・サングラス","日焼け止め",
+"常備薬","折りたたみバッグ","クラブ用の身軽なバッグ"
+];
+const pre=[
+"各フライトのオンラインチェックイン確認","RENFEチケットを端末に保存","サグラダ・ファミリア予約確認",
+"グエル公園予約確認","マドリード王宮予約確認","ソフィア王妃美術館予約確認",
+"Real Madrid チケット販売・正式時刻を確認","FC Barcelona チケット販売・正式時刻を確認",
+"フォルメンテーラ往復フェリー時刻確認","Ushuaïa / Hï / UNVRS のチケットをWalletまたは端末に保存",
+"海外旅行保険を確認","Google Mapsオフラインマップを保存"
+];
+function makeChecks(id,items,prefix){
+ const root=document.getElementById(id);
+ items.forEach((t,i)=>{
+   const key=`spain26-${prefix}-${i}`;
+   const row=document.createElement("label"); row.className="check";
+   row.innerHTML=`<input type="checkbox" ${localStorage.getItem(key)==="1"?"checked":""}><span>${t}</span>`;
+   row.querySelector("input").addEventListener("change",e=>localStorage.setItem(key,e.target.checked?"1":"0"));
+   root.appendChild(row);
+ });
+}
+makeChecks("checklist",packing,"pack");
+makeChecks("precheck",pre,"pre");
+</script>
+</body>
+</html>
